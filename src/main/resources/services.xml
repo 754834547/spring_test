@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:jdbc.properties"/>
-
+    <import resource="classpath:daos.xml"/>
     <context:component-scan base-package="com.tangxu"/>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">

@@ -3,7 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <!--全局初始化参数-->
+    <!-- 配置springMVC前端控制器 load-on-startup服务器启动加载并创建对象 -->
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 告诉前端处理器处理那些controller -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+
+    </servlet-mapping>
+    <!--自定义全局初始化参数-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>applicationContext.xml</param-value>
@@ -16,8 +32,10 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/userServlet</url-pattern>
     </servlet-mapping>
-        <!--监听器-->
+    <!--监听器-->
     <listener>
         <listener-class>com.tangxu.spring_mvc.listener.ContextLoaderListener</listener-class>
     </listener>
+
+
 </web-app>
