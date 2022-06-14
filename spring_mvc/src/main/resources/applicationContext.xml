@@ -11,5 +11,6 @@
     <bean name="userService" class="com.tangxu.spring_mvc.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
+    <!--<bean name="user" class="com.tangxu.spring_mvc.pojo.User"/>-->
 
 </beans>
